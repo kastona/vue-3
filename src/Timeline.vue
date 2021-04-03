@@ -3,7 +3,13 @@
     <div class="container">
          <nav class="is-primary panel">
         <p class="panel-tabs">
-            <a v-for="period in periods" :key="period">{{period}}</a>
+            <a 
+                v-for="period in periods"
+                :key="period"
+                data-test="period"
+                :class="selectedComponent == period? 'is-active': ''"
+                @click="updatePeriod(period)"
+            >{{period}}</a>
         </p>
     </nav>
     </div>
@@ -11,15 +17,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { ref } from '@vue/reactivity'
 import {Period} from './types'
 
-export default defineComponent({
+export default {
     setup() {
         const periods:Period[] = ['Today', 'This Week', 'This Month']
+        const selectedComponent = ref<Period>('Today')
+
+        const updatePeriod = (period: Period) => {
+            selectedComponent.value = period
+        }
         return {
-            periods
+            periods,
+            selectedComponent,
+            updatePeriod
         }
     },
-})
+}
 </script>

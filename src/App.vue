@@ -1,14 +1,18 @@
 <template>
-  <Timeline/>
+  <!-- <Timeline/> -->
+  <Time/>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
 import Timeline from './Timeline.vue'
-export default defineComponent({
+import Test from './Test.vue'
+import Time from './Time.vue'
+export default {
   name: 'App',
   components: {
-    Timeline
+    Timeline,
+    Test,
+    Time
   }
-})
+}
 </script>
