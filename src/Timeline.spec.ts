@@ -28,4 +28,10 @@ describe('Timeline', ()=> {
         expect($thisWeek.classes()).not.toContain('is-active')
         expect($thisMonth.classes()).toContain('is-active')
     })
+
+    it('renders today\'s post by defaul', () => {
+        let wrapper = mount(Timeline)
+
+        expect(wrapper.findAll('[data-test="post"')).toHaveLength(1)
+    })
 })
