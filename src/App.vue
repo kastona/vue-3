@@ -1,6 +1,5 @@
 <template>
-  <!-- <Timeline/> -->
-  <Time/>
+  <Timeline/>
 </template>
 
 <script lang="ts">
